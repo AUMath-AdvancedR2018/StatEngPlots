@@ -1,5 +1,5 @@
 # PPCC Plot
-ppcc <- function(x, distribution = "weibull", minshape = 1, maxshape = 4, steps1 = 10, steps2 = 10, plots = FALSE, brks = 100, meandist = FALSE, mean = NULL, bandw = 0.1, ...){
+ppcc <- function(x, distribution = "weibull", minshape = 1, maxshape = 4, steps1 = 10, steps2 = 10, plots = FALSE, brks = 70, meandist = FALSE, mean = NULL, bandw = 0.1, ...){
   if (distribution == "weibull"){
     est <- density(x, bw = bandw, n = length(x), from = 0)$y
     j = 1
@@ -29,7 +29,7 @@ ppcc <- function(x, distribution = "weibull", minshape = 1, maxshape = 4, steps1
   if (plots == TRUE){
     hist(x, freq = FALSE, breaks = brks)
     curve(dweibull(x, seq(minshape, maxshape, by=steps)[which.max(corvec)]), col = "green", add = TRUE)
-    lines(density(x, bw = bandw), col = "red")
+    lines(density(x, bw = bandw, from = 0), col = "red")
     legend("topleft", c("True Weibull density", "Estimated density"), lty = 2, col = c("green", "red"))
   }
 }
