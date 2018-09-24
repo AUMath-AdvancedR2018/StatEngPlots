@@ -37,5 +37,7 @@ ppcc <- function(x, distribution = "weibull", minshape = 1, maxshape = 4, steps1
       cat("The highest absolute correlation coefficient is", max(abs(corvec)), "\n")
       cat("The best shape parameter is", seq(minshape, maxshape, by=(1-minshape)/steps2)[which.max(abs(corvec))])
     }
+  } else if (distribution == "poisson"){
+
   }
 }
