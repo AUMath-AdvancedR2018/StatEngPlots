@@ -77,5 +77,46 @@ ppcc <- function(x, distribution = "weibull", minshape = 1, maxshape = 4, steps1
     }
     cat("The highest absolute correlation coefficient is", max(abs(corvec)), "\n")
     cat("The best standard deviation is", seq(minshape, maxshape, by = (maxshape-minshape)/(steps1-1))[which.max(abs(corvec))])
+  } else if (distribution == "exponential"){
+    j = 1
+    est <- density(x, bw = bandw, n = length(x), from = 0, to = max(x))$y
+    corvec <- integer(steps1)
+    for (i in seq(minshape, maxshape, by = (maxshape-minshape)/(steps1-1))){
+      expo <- dexp(seq(0, max(x), length = length(x)), rate = i)
+      corvec[j] <- cor(est, expo)
+      j = j+1
+    }
+    plot(seq(minshape, maxshape, by = (maxshape-minshape)/(steps1-1)), corvec)
+    if (plots == TRUE){
+      a <- hist(x, freq = FALSE, breaks = brks)
+      hist(x, freq = FALSE, breaks = brks, ylim = c(0, (max(a$density))*1.5))
+      curve(dexp(x, seq(minshape, maxshape, by=(maxshape-minshape)/(steps1-1))[which.max(abs(corvec))]), col = "green", add = TRUE)
+      lines(density(x, bw = bandw, from = 0, to = max(x)), col = "red")
+      legend("topleft", c("True Exponential density", "Estimated density"), lty = 2, col = c("green", "red"))
+    }
+    cat("The highest absolute correlation coefficient is", max(abs(corvec)), "\n")
+    cat("The best lambda is", seq(minshape, maxshape, by = (maxshape-minshape)/(steps1-1))[which.max(abs(corvec))])
+  } else if (distribution == "lognormal"){
+    est <- density(x, bw = bandw, n = length(x), from = min(x), to = max(x))$y
+    j = 1
+    corvec <- integer(steps1)
+    for (i in seq(minshape, maxshape, by = (maxshape-minshape)/(steps1-1))){
+      lnor <- dlnorm(seq(min(x), max(x), length = length(x)), mean = mean(log(x)), sd = i)
+      corvec[j] <- cor(est, lnor)
+      j = j+1
+    }
+    plot(seq(minshape, maxshape, by = (maxshape-minshape)/(steps1-1)), corvec)
+    if (plots == TRUE){
+      a <- hist(x, freq = FALSE, breaks = brks)
+      hist(x, freq = FALSE, breaks = brks, ylim = c(0, (max(a$density))*1.5))
+      curve(dlnorm(x, mean = mean(x), sd = seq(minshape, maxshape, by=(maxshape-minshape)/(steps1-1))[which.max(abs(corvec))]), col = "green", add = TRUE)
+      lines(density(x, bw = bandw, from = min(x), to = max(x)), col = "red")
+      legend("topleft", c("True Log-Normal density", "Estimated density"), lty = 2, col = c("green", "red"))
+    }
+    cat("The highest absolute correlation coefficient is", max(abs(corvec)), "\n")
+    cat("The best standard deviation is", seq(minshape, maxshape, by = (maxshape-minshape)/(steps1-1))[which.max(abs(corvec))])
   }
 }
+
+#Ask Ute bcs estimated density for exp. dist. (the plot does not look ok).
+#debug the lognormal part
