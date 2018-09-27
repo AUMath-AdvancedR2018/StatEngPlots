@@ -97,11 +97,12 @@ ppcc <- function(x, distribution = "weibull", minshape = 1, maxshape = 10, steps
     cat("The highest absolute correlation coefficient is", max(abs(corvec)), "\n")
     cat("The best lambda is", seq(minshape, maxshape, by = (maxshape-minshape)/(steps1-1))[which.max(abs(corvec))])
   } else if (distribution == "lognormal"){
+    x <- log(x)
     est <- density(x, bw = bandw, n = length(x), from = min(x), to = max(x))$y
     j = 1
     corvec <- integer(steps1)
     for (i in seq(minshape, maxshape, by = (maxshape-minshape)/(steps1-1))){
-      lnor <- dlnorm(seq(min(x), max(x), length = length(x)), mean = mean(log(x)), sd = i)
+      lnor <- dnorm(seq(min(x), max(x), length = length(x)), mean = mean(x), sd = i)
       corvec[j] <- cor(est, lnor)
       j = j+1
     }
@@ -109,7 +110,7 @@ ppcc <- function(x, distribution = "weibull", minshape = 1, maxshape = 10, steps
     if (plots == TRUE){
       a <- hist(x, freq = FALSE, breaks = brks)
       hist(x, freq = FALSE, breaks = brks, ylim = c(0, (max(a$density))*1.5))
-      curve(dlnorm(x, mean = mean(log(x)), sd = seq(minshape, maxshape, by=(maxshape-minshape)/(steps1-1))[which.max(abs(corvec))]), col = "green", add = TRUE)
+      curve(dnorm(x, mean = mean(x), sd = seq(minshape, maxshape, by=(maxshape-minshape)/(steps1-1))[which.max(abs(corvec))]), col = "green", add = TRUE)
       lines(density(x, bw = bandw, from = min(x), to = max(x)), col = "red")
       legend("topleft", c("True Log-Normal density", "Estimated density"), lty = 2, col = c("green", "red"))
     }
@@ -119,4 +120,4 @@ ppcc <- function(x, distribution = "weibull", minshape = 1, maxshape = 10, steps
 }
 
 #Ask Ute bcs estimated density for exp. dist. (the plot does not look ok).
-#debug the lognormal part
+#Check log-normal part for plot
