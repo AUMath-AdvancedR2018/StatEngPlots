@@ -1,5 +1,5 @@
 # PPCC Plot
-ppcc <- function(x, distribution = "weibull", minshape = 1, maxshape = 4, steps1 = 10, steps2 = 10, plots = FALSE, brks = 70, meandist = FALSE, mean = NULL, bandw = 1, abc = "green", ...){
+ppcc <- function(x, distribution = "weibull", minshape = 1, maxshape = 10, steps1 = 30, steps2 = 30, plots = FALSE, brks = 70, meandist = FALSE, mean = NULL, bandw = 1, abc = "green", ...){
   if (distribution == "weibull"){
     j = 1
     est <- density(x, bw = bandw, n = length(x), from = 0, to = max(x))$y
@@ -109,7 +109,7 @@ ppcc <- function(x, distribution = "weibull", minshape = 1, maxshape = 4, steps1
     if (plots == TRUE){
       a <- hist(x, freq = FALSE, breaks = brks)
       hist(x, freq = FALSE, breaks = brks, ylim = c(0, (max(a$density))*1.5))
-      curve(dlnorm(x, mean = mean(x), sd = seq(minshape, maxshape, by=(maxshape-minshape)/(steps1-1))[which.max(abs(corvec))]), col = "green", add = TRUE)
+      curve(dlnorm(x, mean = mean(log(x)), sd = seq(minshape, maxshape, by=(maxshape-minshape)/(steps1-1))[which.max(abs(corvec))]), col = "green", add = TRUE)
       lines(density(x, bw = bandw, from = min(x), to = max(x)), col = "red")
       legend("topleft", c("True Log-Normal density", "Estimated density"), lty = 2, col = c("green", "red"))
     }
