@@ -57,7 +57,7 @@ ppcc <- function(x, distribution = "weibull", minshape = 1, maxshape = 10, steps
       j = j+1
     }
     if (returncor == TRUE){
-      df <- data.frame("Shape" = seq(minshape, maxshape, by = (maxshape-minshape)/(steps1-1)), "Correlation" = corvec)
+      df <- data.frame("Lambda" = seq(minshape, maxshape, by = (maxshape-minshape)/(steps1-1)), "Correlation" = corvec)
       print(df)
     }
     plot(seq(minshape, maxshape, by = (maxshape-minshape)/(steps1-1)), corvec)
@@ -81,7 +81,7 @@ ppcc <- function(x, distribution = "weibull", minshape = 1, maxshape = 10, steps
     }
     plot(seq(minshape, maxshape, by = (maxshape-minshape)/(steps1-1)), corvec)
     if (returncor == TRUE){
-      df <- data.frame("Shape" = seq(minshape, maxshape, by = (maxshape-minshape)/(steps1-1)), "Correlation" = corvec)
+      df <- data.frame("Standard Deviation" = seq(minshape, maxshape, by = (maxshape-minshape)/(steps1-1)), "Correlation" = corvec)
       print(df)
     }
     if (plots == TRUE){
@@ -104,7 +104,7 @@ ppcc <- function(x, distribution = "weibull", minshape = 1, maxshape = 10, steps
     }
     plot(seq(minshape, maxshape, by = (maxshape-minshape)/(steps1-1)), corvec)
     if (returncor == TRUE){
-      df <- data.frame("Shape" = seq(minshape, maxshape, by = (maxshape-minshape)/(steps1-1)), "Correlation" = corvec)
+      df <- data.frame("Lambda" = seq(minshape, maxshape, by = (maxshape-minshape)/(steps1-1)), "Correlation" = corvec)
       print(df)
     }
     if (plots == TRUE){
@@ -128,7 +128,7 @@ ppcc <- function(x, distribution = "weibull", minshape = 1, maxshape = 10, steps
     }
     plot(seq(minshape, maxshape, by = (maxshape-minshape)/(steps1-1)), corvec)
     if (returncor == TRUE){
-      df <- data.frame("Shape" = seq(minshape, maxshape, by = (maxshape-minshape)/(steps1-1)), "Correlation" = corvec)
+      df <- data.frame("Standard Deviation" = seq(minshape, maxshape, by = (maxshape-minshape)/(steps1-1)), "Correlation" = corvec)
       print(df)
     }
     if (plots == TRUE){
