@@ -4,8 +4,7 @@ Title: PPCC Plot
 Version: 0.1.0
 Author: Gizem Çalışkan, Kim Oliver Lausten
 Maintainer: The package maintainer <yourself@somewhere.net>
-Description: The package StatEngPlots is mainly used to plot the Probability Plot Correlation Coefficients Plot. The function 'ppcc' takes a dataset as an input to simulate data from a - for the dataset - guessed distribution with shape parametres in an self-chosen interval. Supported distributions are: Weibull, Poisson, Normal, Log-Normal and Exponential. The simulated data will then be compared with the obtained dataset by finding the correlation coefficient and this procedure will be repeated until all shape parametres in the chosen interval has been used. The highest correlation coefficient and the best estimated shape parameter are getting returned and the correlation coefficients are plottet against their shape parameters. If the 'plots' argument ist set to 'TRUE' inside the 'ppcc' function, the function also returns a histogram of the obtained dataset, including the estimated density and the true density for the best estimated shape parameter, to check the results.
-Beside the 'ppcc' function there are two more smaller functions 'meanplot' and 'sdplot' which both take a dataset as an input and return a mean plot or a standard deviation plot respectively.
+Description: 
 License: None.
 Encoding: UTF-8
 LazyData: true
