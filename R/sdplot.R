@@ -5,14 +5,9 @@ sdplot <- function(x, nr = 0, divide = TRUE, divided = TRUE, return = FALSE){
       if (nr == 0){
         cat("Error. No number of partitions (nr) defined. You need to define the number of partitions to be bigger than 0.")
       } else {
-        xnew <- list()
+        chunk <- function(y, z) split(y, factor(sort(rank(y)%%z)))
+        xnew <- chunk(x,nr)
         sdvec <- integer(nr)
-        l <- length(x)
-        for (i in 1:nr){
-          xnew[[i]] <- x[1:round((l/nr))]
-          x <- x[-(1:round((l/nr)))]
-        }
-        xnew[[length(xnew)]] <- as.numeric(na.omit(xnew[[length(xnew)]]))
         for(i in 1:nr){
           sdvec[i] <- sd(xnew[[i]])
         }
