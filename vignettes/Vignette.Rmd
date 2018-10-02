@@ -9,16 +9,53 @@ vignette: >
   %\VignetteEngine{knitr::rmarkdown}
   \usepackage[utf8]{inputenc}
 ---
-## Introduction
-blablabla
+## This message is for the group that will be testing our package : We have some mistakes inside our package and we want to challenge you to find them. If you can't find the mistake, just look for the hint that we have left for you. Good luck :)
 
-## Next
-blabla
+## Introduction
+
+In this package, we are going to introduce three plots which are Probability Plot Correlation Coefficient Plot, Standard Deviation Plot and Mean Plot
+
+## Probability Plot Correlation Coefficient Plot
+
+Definition : The probability plot correlation coefficient (PPCC) plot is a graphical data analysis technique that lets you determine the shape parameter for a distributional family that best describes the data set.
+
+The PPCC plot is used to find the best shape parameter. It is also set to find the estimates of the scale parameters along with giving an assessment of the sufficiency of the distributional fit. 
+
+Here you can see an example of the PPCC plot for determining the best shape parameter by using weibull distribution.
+
+
 ```{R}
 library("StatEngPlots")
+
+abc <- rweibull(1000,4)
+ppcc(abc)
+
+```
+
+## Standard Deviation Plot
+
+Definition : Standard Deviation Plot is a plot that is used for knowing if the standard deviation changes between different groups of data. 
+
+Standard deviation plot can also be used to know the change of an ungrouped data over time.In this case, the data can be divided into groups that have the equal-size.
+
+Here you can see an example of the standard deviation plot for a normal distributed dataset. 
+
+```{R}
+
 a <- rnorm(100,0,1)
 sdplot(a,divide=FALSE,nr=10)
+
 ```
+
+## Mean Plot
+
+Definition : Mean Plot is a plot that is used for knowing if the mean changes between different groups of data. 
+
+Mean plot can also be used to know the change of an ungrouped data over time.In this case, the data can be divided into groups that have the equal-size.
+
+Mean plots are oftenly used with standard deviation plots. Turns in location can be determined with mean plot and turns in scales can be determined with standard deviation plot. 
+
+Here you can see an example of the mean plot for a poisson distributed dataset.
 
 
 

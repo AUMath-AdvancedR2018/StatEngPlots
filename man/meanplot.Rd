@@ -12,7 +12,7 @@ meanplot(x, nr = 0, divided = TRUE, return = FALSE)
 }
 \examples{
 #Simulate a normal distributed data set:
-x = dnorm(1000,3)
+x = dnorm(1000,0,1)
 # Use meanplot() to divide x into 10 parts and to find the different means:
 meanplot(x, divided = FALSE, nr = 10)
 # Also return the estimated standard deviations:

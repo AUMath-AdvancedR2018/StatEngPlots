@@ -28,7 +28,7 @@ ppcc(x)
 # Simulate a Poisson distributed dataset:
 x = rpois(1000, 3)
 # Use th ppcc() function to estimate the best lambda:
-ppcc(x, distibution = "poisson")
+ppcc(x, distribution = "poisson")
 # Get a histogram with the estimated density and the true density for the best estimated lambda:
 ppcc(x, distribution = "poisson", plots = TRUE)
 }
