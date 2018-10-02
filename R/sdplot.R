@@ -3,7 +3,7 @@ sdplot <- function(x, nr = 0, divide = TRUE, divided = TRUE, return = FALSE){
   if (divide == TRUE){
     if (divided == FALSE){
       if (nr == 0){
-        cat("Error. No number of partitions (nr) defined. You need to define the number of partitions to be bigger than 0.")
+        cat("Error. No number of partitions (nr) defined. You need to define the number of partitions to be bigger than 0 and smaller than length(x).")
       } else {
         chunk <- function(y, z) split(y, factor(sort(rank(y)%%z)))
         xnew <- chunk(x,nr)

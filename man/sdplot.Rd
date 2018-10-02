@@ -8,7 +8,7 @@ sdplot(x, nr = 0, divided = TRUE, return = FALSE)
 \code{sdplot()} takes a vector of data, a list or a data frame \code{x} and finds the standard deviations for the different parts in the dataset. \code{sdplot()} is able to divide a vector of data into a self-chosen number of parts which are distributed "as equal as possible". The function \code{sdplot()} returns a plot of the standard deviations and the median of those.
 }
 \arguments{
-\item{x}{The data to be analyzed. \code{x} needs to be a vector, a list or a data frame.}
+\item{x}{The data to be analyzed. \code{x} needs to be a vector, a list or a data frame. \code{x} has to be bigger than 0 and smaller than \code{length(x)}.}
 \item{nr}{The total number of parts, the datasat has to be divided in, if \code{x} is a vector.}
 \item{divided}{Needs to be defined to tell the function whether the dataset \code{x} is already divided into parts (list or data frame) or not divided into parts (vector). If \code{divided} is set to \code{FALSE} the function divides the dataset into \code{nr} as equal as possible distributed parts. Default set to \code{TRUE}.}
 \item{return}{If set to \code{TRUE}, the function \code{sdplot()} returns a vector of the estimated standard deviations. Default set to \code{FALSE}.}
