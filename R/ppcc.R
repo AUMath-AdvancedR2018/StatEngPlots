@@ -142,6 +142,3 @@ ppcc <- function(x, distribution = "weibull", minshape = 1, maxshape = 10, steps
     cat("The best standard deviation is", seq(minshape, maxshape, by = (maxshape-minshape)/(steps1-1))[which.max(abs(corvec))])
   }
 }
-
-#Ask Ute bcs estimated density for exp. dist. (the plot does not look ok).
-#Check log-normal part for plot
