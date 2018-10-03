@@ -57,5 +57,10 @@ Mean plots are oftenly used with standard deviation plots. Turns in location can
 
 Here you can see an example of the mean plot for a poisson distributed dataset.
 
+```{R}
 
+b <- rpois(1000,3)
+meanplot(b,divide=FALSE,nr=10)
+
+```
 
