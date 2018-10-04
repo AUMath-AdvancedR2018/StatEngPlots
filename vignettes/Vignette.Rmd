@@ -9,22 +9,21 @@ vignette: >
   %\VignetteEngine{knitr::rmarkdown}
   \usepackage[utf8]{inputenc}
 ---
-## This message is for the group that will be testing our package : We have some mistakes inside our package and we want to challenge you to find them. If you can't find the mistake, just look for the hint that we have left for you. Good luck :)
+## This message is for the group that will be testing our package: We have some mistakes inside our package which we have noticed really late. We want to challenge you to find them. If you can't find the mistakes, you can use the hint() function to get some hints. Good luck. :-)
 
 ## Introduction
 
-In this package, we are going to introduce three plots which are Probability Plot Correlation Coefficient Plot, Standard Deviation Plot and Mean Plot
+In this package, we are going to introduce three plots which are the Probability Plot Correlation Coefficient Plot, the Standard Deviation Plot and the Mean Plot. As a little extra, we have also included the fourplot in this package, but the code is based on our earlier homework exercises.
 
 ## Probability Plot Correlation Coefficient Plot
 
-Definition : The probability plot correlation coefficient (PPCC) plot is a graphical data analysis technique that lets you determine the shape parameter for a distributional family that best describes the data set.
+Definition: The Probability Plot Correlation Coefficient (PPCC) plot is a graphical data analysis technique that lets you determine the shape parameter for a distributional family which best describes the data set.
 
-The PPCC plot is used to find the best shape parameter. It is also set to find the estimates of the scale parameters along with giving an assessment of the sufficiency of the distributional fit. 
+The PPCC plot is used to find the best shape parameter. It is also set to find the estimates of the scale parameters along with giving an assessment of the sufficiency of the distributional fit.
 
-Here you can see an example of the PPCC plot for determining the best shape parameter by using weibull distribution.
+Here you can see an example of the PPCC plot for determining the best shape parameter by using the Weibull distribution:
 
-
-```{R}
+```{R, echo = FALSE, fig.width = 7, fig.height = 5}
 library("StatEngPlots")
 
 abc <- rweibull(1000,4)
@@ -32,35 +31,49 @@ ppcc(abc)
 
 ```
 
+The technique is to look at the dataset, e.g. at the histogram, and to guess a distribution (in this case Weibull). Then the density for the dataset is estimated using the density() function. Afterwards, this density is going to be compared to a set of true densitys of the guessed distribution for different shape parameters. The comparison is made by finding the correlation coeffitient. The correltaion coefficients are plottet against ther corresponding shape parameters and the estimated best shape parameter is then the one with the highest correlation coefficient.
+
 ## Standard Deviation Plot
 
-Definition : Standard Deviation Plot is a plot that is used for knowing if the standard deviation changes between different groups of data. 
+Definition: The Standard Deviation plot is a plot that is used for knowing if the standard deviation changes between different groups of data. 
 
-Standard deviation plot can also be used to know the change of an ungrouped data over time.In this case, the data can be divided into groups that have the equal-size.
+The Standard deviation plot can also be used to know the change of an ungrouped data over time. In this case, the data can be divided into groups of equal size.
 
-Here you can see an example of the standard deviation plot for a normal distributed dataset. 
+Here you can see an example of the Standard Seviation plot for a normal distributed dataset:
 
-```{R}
+```{R, echo = FALSE, fig.width = 7, fig.height = 5}
 
 a <- rnorm(100,0,1)
 sdplot(a,divide=FALSE,nr=10)
 
 ```
 
+We have implemented two possible ways to make a Standard Deviation plot.
+
+### 1)
+
+If $x$ is our dataset and class($x$) equals "integer" or "numeric" (i.e. we are working with a vector), we divide the vector into $nr$ self chosen sets which are distributed "as equal as possible". Then the Standard Deviations are being calculated for every set and plotted at last.
+If class($x$) equals "list" or "data.frame", then our dataset is already divided into groups, which in case of a list are the rows and in case of a data frame are the columns. Here the Standard Deviations are being calculated for the corresponding groups and plottet at last.
+
+### 2)
+
+The second method converts all dataclasses into a vector. Now, $nr$ stands for the number of first elements which R has to look at. The Standard Deviation is being calculated for $x_1,...,x_{nr}$. The next Standard Deviation is then calculated for $x_2,...,x_{nr+1}$ and so on until the last entry is reached. The Standard Deviations are plottet at last. This method give a more continous plot of Standard Deviations over time.
+
 ## Mean Plot
 
-Definition : Mean Plot is a plot that is used for knowing if the mean changes between different groups of data. 
+Definition: The Mean plot is a plot that is used for knowing if the mean changes between different groups of data. 
 
-Mean plot can also be used to know the change of an ungrouped data over time.In this case, the data can be divided into groups that have the equal-size.
+The Mean plot can also be used to know the change of an ungrouped data over time. In this case, the data can be divided into groups of equal size.
 
-Mean plots are oftenly used with standard deviation plots. Turns in location can be determined with mean plot and turns in scales can be determined with standard deviation plot. 
+Mean plots are oftenly used with Standard Deviation plots. Turns in location can be determined with the Mean plot and turns in scales can be determined with the Standard Deviation plot. 
 
-Here you can see an example of the mean plot for a poisson distributed dataset.
+Here you can see an example of the Mean plot for a poisson distributed dataset.
 
-```{R}
+```{R, echo = FALSE, fig.width = 7, fig.height = 5}
 
 b <- rpois(1000,3)
 meanplot(b,divide=FALSE,nr=10)
 
 ```
 
+We have also implemented the two possibilities, like for the Standard Deviations plot, for the Mean plot. The procedure is kind of the same.
