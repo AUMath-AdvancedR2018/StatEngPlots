@@ -2,11 +2,7 @@ Package: StatEngPlots
 Type: Package
 Title: PPCC Plot
 Version: 0.1.0
-<<<<<<< HEAD
 Author: Gizem Caliskan, Kim Oliver Lausten
-=======
-Author: Gizem Caliskan, Kim Oliver Lausten
->>>>>>> 758eedb2c5055a6c91fecb64be85df3da79f5ff5
 Maintainer: The package maintainer <yourself@somewhere.net>
 Description: None.
 License: None.
