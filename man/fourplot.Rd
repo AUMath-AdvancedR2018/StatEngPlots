@@ -17,7 +17,7 @@ fourplot(x)
 Returns a four plot containing a run sequence plot, a lag plot, an histogram and a normal probability plot to test normal distribution.
 }
 \description{
-fourplot gives you four plots for data analysis.
+\code{fourplot} gives you four plots for data analysis.
 }
 \details{
 fourplot plots four functions that can be used for data analysis.
