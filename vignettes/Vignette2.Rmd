@@ -1,14 +1,20 @@
 ---
 title: "StatEngPlots"
 author: "Gizem Caliskan, Kim Oliver Lausten"
-date: "13 october 2018"
+date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
-fig_caption: yes
 vignette: >
-  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteIndexEntry{StatEngPlots}
   %\VignetteEngine{knitr::rmarkdown}
-  \usepackage[utf8]{inputenc}
+  %\VignetteEncoding{UTF-8}
 ---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
 ## This message is for the group that will be testing our package: We have some mistakes inside our package which we have noticed really late. We want to challenge you to find them. If you can't find the mistakes, you can use the hint() function to get some hints. Good luck. :-)
 
 ## Introduction
@@ -71,7 +77,7 @@ Here you can see an example of the Mean plot for a poisson distributed dataset.
 
 ```{R, echo = FALSE, fig.width = 7, fig.height = 5}
 
-b <- rpois(1000,3)
+b <- rpois(100,3)
 meanplot(b,divide=FALSE,nr=10)
 
 ```
