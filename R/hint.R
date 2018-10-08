@@ -1,6 +1,7 @@
 # Hint function. IMPORTANT FOR THE GROUP THAT HAS TO LOOK AT OUR PACKAGE: Read the very beginning of the
 # vignette before looking at this function.
 # This function is not relevant for the rest of the package.
+#' @export
 hint <- function(x = NULL){
   if (x == 1){
     cat("The wrong part(s) are in the ppcc part.")

@@ -1,3 +1,4 @@
+#' @export
 fourplot <- function(x){
 
   n <- length(x)
