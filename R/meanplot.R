@@ -1,4 +1,5 @@
 # Mean Plot
+#' @export
 meanplot <- function(x, nr = 0, divide = TRUE, divided = TRUE, return = FALSE){
   if (divide == FALSE){
     if (nr != 0){

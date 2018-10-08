@@ -1,4 +1,5 @@
 # PPCC Plot
+#' @export
 ppcc <- function(x, distribution = "weibull", minshape = 1, maxshape = 10, steps1 = 30, steps2 = 30, plots = FALSE, brks = 70, bandw = "nrd0", returncor = FALSE){
   if (distribution == "weibull"){
     j = 1

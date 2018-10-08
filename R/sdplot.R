@@ -1,4 +1,5 @@
 # Standard Deviation Plot
+#' @export
 sdplot <- function(x, nr = 0, divide = TRUE, divided = TRUE, return = FALSE){
   if (divide == TRUE){
     if (divided == FALSE){
