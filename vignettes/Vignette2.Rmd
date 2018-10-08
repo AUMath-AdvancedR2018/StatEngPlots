@@ -83,3 +83,7 @@ meanplot(b,divide=FALSE,nr=10)
 ```
 
 We have also implemented the two possibilities, like for the Standard Deviations plot, for the Mean plot. The procedure is kind of the same.
+
+## Datasets
+
+We have included two datasets which are showing some mean temperatures for every day in 2015 in Copenhagen and Istanbul. The temperatures are specified in Fahrenheit. You can use the datasets by calling TempCop for Copenhagen and TempIst for Istanbul.
