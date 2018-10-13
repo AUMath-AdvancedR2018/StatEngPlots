@@ -84,6 +84,35 @@ meanplot(b,divide=FALSE,nr=10)
 
 We have also implemented the two possibilities, like for the Standard Deviations plot, for the Mean plot. The procedure is kind of the same.
 
+##Fourplot
+
+Definition : The fourplot is a collection of graphical techiques.It includes 
+1. Run Sequence Plot
+2. Lag Plot
+3. Histogram 
+4. Normal Probability Plot
+
+Here is an example of the usage of fourplot
+
+```{R}
+library(fourplot)
+fourplot(x)
+```
+
 ## Datasets
 
-We have included two datasets which are showing some mean temperatures for every day in 2015 in Copenhagen and Istanbul. The temperatures are specified in Fahrenheit. You can use the datasets by calling TempCop for Copenhagen and TempIst for Istanbul.
+We have included four datasets. TempIst and TempCop are showing some mean temperatures for every day in 2015 in Copenhagen and Istanbul. The temperatures are specified in Fahrenheit. You can use the datasets by calling TempCop for Copenhagen and TempIst for Istanbul.
+
+Since the data is in Fahrenheit you can use the fahrenheit_to_celcius() function to convert Fahrenheit to Celcius.
+
+
+temperature_turkey and temperature_denmark are the other datasets.They show monthly changes of the temperature between 1991-2015. The temperatures are in Celcius. 
+
+
+
+
+
+
+
+
+
