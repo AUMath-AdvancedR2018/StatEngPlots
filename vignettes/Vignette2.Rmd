@@ -94,8 +94,10 @@ Definition : The fourplot is a collection of graphical techiques.It includes
 
 Here is an example of the usage of fourplot
 
-```{R}
-library(fourplot)
+```{R, fig.height = 6, fig.width = 6}
+
+
+x <- rnorm(100,0.1)
 fourplot(x)
 ```
 
