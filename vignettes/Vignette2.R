@@ -23,3 +23,9 @@ b <- rpois(100,3)
 meanplot(b,divide=FALSE,nr=10)
 
 
+## ---- fig.height = 6, fig.width = 6--------------------------------------
+
+
+x <- rnorm(100,0.1)
+fourplot(x)
+

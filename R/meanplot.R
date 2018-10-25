@@ -57,7 +57,9 @@ meanplot <- function(x, nr = 0, divide = TRUE, divided = TRUE, return = FALSE){
         legend("topleft", c("Mean", "Median"), lty = 4, col = c("blue", "red"))
       } else if (class(x) == "data.frame"){
         for(i in 1:length(x)){
-          meanvec[i] <- mean(x[,i])
+          meanvec[i] <- colMeans(x[,i,drop =FALSE], na.rm = TRUE)
+
+
         }
         med <- median(meanvec)
         plot(meanvec, type = "b", ylab = "Mean", xlab = "Part", col = "blue")
@@ -72,7 +74,8 @@ meanplot <- function(x, nr = 0, divide = TRUE, divided = TRUE, return = FALSE){
       }
     } else {
       if (nr != 0){
-        chunk <- function(y, z) split(y, factor(sort(rank(y)%%z)))
+        x <- x[!is.na(x)]
+        chunk <- function(y, z) split(y, factor(seq_along(y)%%z))
         xvec <- chunk(x,nr)
         meanvec <- integer(nr)
         for(i in 1:nr){
@@ -93,3 +96,4 @@ meanplot <- function(x, nr = 0, divide = TRUE, divided = TRUE, return = FALSE){
 
   }
 }
+

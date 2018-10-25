@@ -1,0 +1,89 @@
+---
+title: "Data Examples Using Fourplot"
+author: "Gizem Caliskan"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{StatEngPlots}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+##Introduction
+
+In this documentation, I will try to demonstrate and analyse the two datasets that is implemented in the package by using fourplot. First I will start with TempCop and TempIst datas and then I will go on with temperature_denmark and temperature_turkey datas.
+
+##First Example
+
+I want to analyse the temperatures of Copenhagen and Istanbul in January of 2015.First let's see the fourplots of these figures. 
+
+```{R, fig.height = 6, fig.width = 6}
+
+library(StatEngPlots)
+fourplot(TempCop$June)
+fourplot(TempIst$June)
+
+```
+
+Let's look at the fourplots individually for both Copenhagen and Istanbul.
+
+Sequence Plot 
+
+Sequence plot shows the shifts in the temperatures for 30 days. 
+The vertical axis shows the temperatures and the horizontal axis shows the days. 
+
+So for the Copenhagen data the temperature is around 57-63 °F. And for Istanbul 72-76 °F. In both places temperature does not shift too much. Istanbul is clearly hotter than Copenhagen in June. 
+
+
+Lag Plot 
+
+A lag is a fixed amount of passing time. One set of observations in a time series is plotted against a second data. 
+
+We can see for both Istanbul and Copenhagen the lag plot is not linear. It means that there is no autocorrelation. If you know the temperature for one day you can not predict the exact temperature on the next day.
+
+
+Histogram
+
+It shows how many times the temperatures repeated itselves. We can see in Istanbul 72-73 degrees is the most repeated and in Copenhagen 58-59 degrees is the most repeated. 
+
+Normal Probability Plot
+
+The normal probability plot is a graphical technique for assessing whether or not a dataset is approximately normally distributed.The points of the temperatures form a nearly nice pattern in both Istanbul and Copenhagen which indicates that the normal distribution is a good model for this data set. 
+
+
+##Second Example
+
+For the second example we will analyse the datas from temperature_denmark and temperature_turkey datasets to see what happens monthly in 2015.
+Let's first look the data in Denmark.
+
+```{R,fig.height = 6, fig.width = 6}
+
+  
+fourplot(temperature_denmark$`2015`)
+
+```
+
+Sequence Plot : 
+
+We can see the temperature is linearly increasing until August and then again linearly dropping in both countries..
+
+Lag Plot : 
+
+Again in both countries temperatures are random so there is no way of knowing what the temperature will be from one month before.
+
+Histogram :
+
+Histogram shows nicely the repeated temperatures for both countries.
+
+Normal Probability Plot:
+
+In both countries the temperatures are nearly linearly distributed. So the normal distribution is a good model for this dataset.
+
+

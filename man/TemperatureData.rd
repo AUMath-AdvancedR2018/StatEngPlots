@@ -1,5 +1,9 @@
+\docType{data}
 \name{Data}
-\alias{Data}
+\alias{TempIst}
+\alias{TempCop}
+\alias{temperature_turkey}
+\alias{temperature_denmark}
 \title{Temperature Datasets}
 \usage{
 TempIst
@@ -9,11 +13,7 @@ temperature_denmark
 }
 \description{
 There are two kinds of datas and four kinds of datasets in this package.
-The first two datasets are called TempCop and TempIst and they show some mean temperatures for every day in 2015 in Copenhagen and Istanbul.They are in Fahrenheit. So if you want to convert it to celcius you can run this code first and then use the fahrenheit_to_celcius function
-
-fahrenheit_to_celcius <- function(temp_F){
-temp_C <- ((temp_F-32)*(5/9))
-return(temp_C)
+The first two datasets are called TempCop and TempIst and they show some mean temperatures for every day in 2015 in Copenhagen and Istanbul.
 }
 
 }

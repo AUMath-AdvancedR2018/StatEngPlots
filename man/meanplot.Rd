@@ -31,3 +31,15 @@ meanplot(x)
 # Use the continous method with a list (or data frame or vector):
 a = sample(100,50)
 meanplot(a, divide = FALSE, nr = 10, return = TRUE)
+
+
+
+#If we use the dataset TempCop to see its columns means, we can use the function
+
+colMeans(TempCop, na.rm = TRUE)
+
+But the temperatures are in Fahrenheit. You can simply run this code if you want to turn them into celcius.
+
+fahrenheit_to_celcius <- function(temp_F){
+temp_C <- ((temp_F-32)*(5/9))
+return(temp_C)
