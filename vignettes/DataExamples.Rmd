@@ -55,7 +55,7 @@ It shows how many times the temperatures repeated itselves. We can see in Istanb
 
 Normal Probability Plot
 
-The normal probability plot is a graphical technique for assessing whether or not a dataset is approximately normally distributed.The points of the temperatures form a nearly nice pattern in both Istanbul and Copenhagen which indicates that the normal distribution is a good model for this data set. 
+The normal probability plot is a graphical technique for assessing whether or not a dataset is approximately normally distributed.The points of the temperatures form not quite linear form in both Istanbul and Copenhagen which indicates that the normal distribution is nota good model for this data set. 
 
 
 ##Second Example
@@ -67,23 +67,24 @@ Let's first look the data in Denmark.
 
   
 fourplot(temperature_denmark$`2015`)
+fourplot(temperature_turkey$`2015`)
 
 ```
 
 Sequence Plot : 
 
-We can see the temperature is linearly increasing until August and then again linearly dropping in both countries..
+We can see the temperature is linearly increasing until August and then again linearly dropping in both countries.
 
 Lag Plot : 
 
-Again in both countries temperatures are random so there is no way of knowing what the temperature will be from one month before.
+In both countries temperatures are not independent. This shows that the data are strongly non-random and further suggests that an autoregressive model might be appropriate.So you can predict the next months temperature from the previous month.
 
 Histogram :
 
-Histogram shows nicely the repeated temperatures for both countries.
+Histogram shows for Turkey, there is more changes in the weather comparing to Denmark. 
 
 Normal Probability Plot:
 
-In both countries the temperatures are nearly linearly distributed. So the normal distribution is a good model for this dataset.
+In Denmark the temperatures are nearly linearly distributed. But for Turkey it is more different. It is quite like bimodal distribution. So the normal distribution is a good model for this dataset.
 
 
